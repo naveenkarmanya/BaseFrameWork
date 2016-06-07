@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('Step1','AdminLTEController@register');
+Route::any('Step2',array(
+   'as'=>'registersubmit',
+    'uses'=>'AdminLTEController@registerSubmit'
+));
