@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 class AdminLTEController extends Controller
 {
     public function admin() {
@@ -30,9 +31,11 @@ class AdminLTEController extends Controller
         $UserName = Input::get('username');
         $Password = Input::get('password');
         $ConformPassword = Input::get('conformpassword');
-        $body = "Please click the link to activate your email \n
-http://www.activationlink.com?";
+        $body = "Please click the link to activate your email \n http://framework.karmanya.dev/Step2/{confirmationCode}";
+
         
+
+        $confirmation_code = str_random(30);
         
         DB::table('User')->insert(['FirstName' => $FirstName, 'LastName' => $LastName, 'Gender_ID' => $Gender_ID, 'UserName' => $UserName,'Password'=>$Password]);
 
@@ -50,8 +53,26 @@ http://www.activationlink.com?";
         Mail::send('email/test', array('body' => $body), function($message)use($UserName) {
             $message->to($UserName, 'naveen')->subject('test mail');
         });
+        
+       
 
+
+
+echo "Please Click Bellow Link to Activate Your Email"."<p><a href=\"{{ URL::to('register/verify/' . $confirmation_code) }}/". "</a></p>";
 
     }
+    
+    public function confirm($confirmation_code)
+    {
+        if( ! $confirmation_code)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
 
+        $user = DB::table('User')->select("*")->get();
+
+        
+       return view('welcome');
+    }
 }
+

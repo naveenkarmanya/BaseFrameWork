@@ -19,3 +19,7 @@ Route::any('Step2',array(
    'as'=>'registersubmit',
     'uses'=>'AdminLTEController@registerSubmit'
 ));
+Route::get('Step2/{confirmationCode}', [
+    'as' => 'confirmation_path',
+    'uses' => 'AdminLTEController@confirm'
+]);
