@@ -43,37 +43,37 @@
                         <span class="glyphicon glyphicon-user form-control-feedback" id=""></span>
                         <span id="namelocation">
                         </span></div>
-                     <div class="form-group has-feedback">
-                       
+                    <div class="form-group has-feedback">
+
                         <input type="text" class="form-control name" name="lastname" id="lastname" placeholder="Last Name">
                         <span class="glyphicon glyphicon-user form-control-feedback" id=""></span>
                         <span id="namelocation">
                         </span></div>
                     <div class="form-group has-feedback">
-                       
+
                         <input type="text" class="form-control name" name="gender" id="gender" placeholder="Gender ID">
                         <span class="glyphicon glyphicon-user form-control-feedback" id=""></span>
                         <span id="namelocation">
                         </span></div>
                     <div class="form-group has-feedback">
-                       
-                        <input type="text" class="form-control name" name="username" id="gender" placeholder="UserName">
+
+                        <input type="email" class="form-control name" name="username" id="gender" placeholder="UserName">
                         <span class="glyphicon glyphicon-user form-control-feedback" id=""></span>
                         <span id="namelocation">
                         </span></div>
                     <div class="form-group has-feedback">
-                       
+
                         <input type="password" class="form-control name" name="password" id="password" placeholder="Password">
                         <span class="glyphicon glyphicon-user form-control-feedback" id=""></span>
                         <span id="namelocation">
                         </span></div>
                     <div class="form-group has-feedback">
-                       
+
                         <input type="password" class="form-control name" name="conformpassword" id="conformpassword" placeholder="conformpassword">
                         <span class="glyphicon glyphicon-user form-control-feedback" id=""></span>
                         <span id="namelocation">
                         </span></div>
-                    
+
                     <div class="row">
                         <div class="col-xs-8">
                             <div class="checkbox icheck">
