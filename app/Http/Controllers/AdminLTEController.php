@@ -36,8 +36,9 @@ class AdminLTEController extends Controller
         
 
         $confirmation_code = str_random(30);
+        //echo $confirmation_code;
         
-        DB::table('User')->insert(['FirstName' => $FirstName, 'LastName' => $LastName, 'Gender_ID' => $Gender_ID, 'UserName' => $UserName,'Password'=>$Password]);
+        DB::table('User')->insert(['FirstName' => $FirstName, 'LastName' => $LastName, 'Gender_ID' => $Gender_ID, 'UserName' => $UserName,'Password'=>$Password,'Validation_Token'=>$body]);
 
         $User = DB::table('User')->select("*")->get();
         //print_r($User);
@@ -69,7 +70,7 @@ echo "Please Click Bellow Link to Activate Your Email"."<p><a href=\"{{ URL::to(
             throw new InvalidConfirmationCodeException;
         }
 
-        $user = DB::table('User')->select("*")->get();
+//        $user = DB::table('User')->select("*")->get();
 
         
        return view('welcome');
