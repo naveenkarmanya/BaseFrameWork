@@ -10,7 +10,8 @@
   | and give it the controller to call when that URI is requested.
   |
  */
-
+Route::group(['middleware'=>['web']],function(){
+      
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,7 +20,18 @@ Route::any('Step2', array(
     'as' => 'registersubmit',
     'uses' => 'AdminLTEController@registerSubmit'
 ));
-Route::get('Step2/{confirmationCode}', [
-    'as' => 'confirmation_path',
-    'uses' => 'AdminLTEController@confirm'
+Route::get('Step2/{Token}', 'AdminLTEController@confirm');
+
+});
+
+
+
+
+Route::get('polymorphic', [
+    'as' => 'polymorphic',
+    'uses' => 'AdminLTEController@polymorphic'
+]);
+Route::get('manypoly', [
+    'as' => 'manypoly',
+    'uses' => 'AdminLTEController@manypoly'
 ]);

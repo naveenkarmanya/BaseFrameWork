@@ -32,11 +32,16 @@
             <div class="register-logo">
                 <a href="../../index2.html"><b>Admin</b>LTE</a>
             </div>
+            <?php
+            if (isset($Result)) {
+                echo "<b style='color:blue'>" . $Result . "</b>";
+            }
+            ?>
 
             <div class="register-box-body">
                 <p class="login-box-msg">Register a new membership</p>
 
-                <form  method="post" action="{{URL::Route('registersubmit')}}">
+                <form  method="post" action="{{URL::Route('registersubmit')}}" class="login">
                     <div class="form-group has-feedback">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <input type="text" class="form-control name" name="firstname" id="firstname" placeholder="First Name">
@@ -47,31 +52,31 @@
 
                         <input type="text" class="form-control name" name="lastname" id="lastname" placeholder="Last Name">
                         <span class="glyphicon glyphicon-user form-control-feedback" id=""></span>
-                        <span id="namelocation">
+                        <span id="lastnamelocation">
                         </span></div>
                     <div class="form-group has-feedback">
 
                         <input type="text" class="form-control name" name="gender" id="gender" placeholder="Gender ID">
                         <span class="glyphicon glyphicon-user form-control-feedback" id=""></span>
-                        <span id="namelocation">
+                        <span id="genderlocation">
                         </span></div>
                     <div class="form-group has-feedback">
 
-                        <input type="email" class="form-control name" name="username" id="gender" placeholder="UserName">
+                        <input type="email" class="form-control name" name="username" id="username" placeholder="UserName">
                         <span class="glyphicon glyphicon-user form-control-feedback" id=""></span>
-                        <span id="namelocation">
+                        <span id="emaillocation">
                         </span></div>
                     <div class="form-group has-feedback">
 
                         <input type="password" class="form-control name" name="password" id="password" placeholder="Password">
                         <span class="glyphicon glyphicon-user form-control-feedback" id=""></span>
-                        <span id="namelocation">
+                        <span id="passwordlocation">
                         </span></div>
                     <div class="form-group has-feedback">
 
                         <input type="password" class="form-control name" name="conformpassword" id="conformpassword" placeholder="conformpassword">
                         <span class="glyphicon glyphicon-user form-control-feedback" id=""></span>
-                        <span id="namelocation">
+                        <span id="conformpasswordlocation">
                         </span></div>
 
                     <div class="row">
@@ -93,7 +98,7 @@
 
 
                 </form>
-
+               
 
 
                 <!--    <div class="social-auth-links text-center">
@@ -116,9 +121,10 @@
         <script src="{{asset('/bootstrap/js/bootstrap.min.js')}}"></script>
         <!-- iCheck -->
         <script src="{{asset('/plugins/iCheck/icheck.min.js')}}"></script>
-        <script src='/js/Admin.js'></script>
+        <script src='/Js/register.js'></script>
         <script>
 $(function () {
+   
     $('input').iCheck({
         checkboxClass: 'icheckbox_square-blue',
         radioClass: 'iradio_square-blue',
